@@ -1,0 +1,50 @@
+// Simplified, realistic fresher job dataset for the dashboard.
+// Each record approximates a single job posting.
+
+const jobData = [
+  // role, city, minLpa, maxLpa, skills (array), expYears
+  { role: "Data Analyst", city: "Bangalore", minLpa: 5, maxLpa: 9, skills: ["Python", "SQL", "Excel", "Power BI"], exp: 0 },
+  { role: "Data Analyst", city: "Hyderabad", minLpa: 4.5, maxLpa: 8, skills: ["Python", "SQL", "Excel"], exp: 1 },
+  { role: "Data Analyst", city: "Pune", minLpa: 4, maxLpa: 7.5, skills: ["SQL", "Excel", "Tableau"], exp: 0 },
+  { role: "Data Analyst", city: "Gurgaon", minLpa: 5.2, maxLpa: 9.5, skills: ["Python", "SQL", "Power BI"], exp: 1 },
+  { role: "Business Analyst", city: "Bangalore", minLpa: 4.5, maxLpa: 8, skills: ["Excel", "SQL", "Power BI"], exp: 1 },
+  { role: "Business Analyst", city: "Hyderabad", minLpa: 4, maxLpa: 7, skills: ["Excel", "SQL"], exp: 0 },
+  { role: "Business Analyst", city: "Mumbai", minLpa: 3.5, maxLpa: 6.5, skills: ["Excel", "Power BI"], exp: 1 },
+  { role: "Full Stack Developer", city: "Bangalore", minLpa: 5, maxLpa: 10, skills: ["JavaScript", "React", "Node.js", "SQL"], exp: 1 },
+  { role: "Full Stack Developer", city: "Hyderabad", minLpa: 4.8, maxLpa: 9, skills: ["JavaScript", "React", "Node.js"], exp: 0 },
+  { role: "Full Stack Developer", city: "Pune", minLpa: 4.5, maxLpa: 8.5, skills: ["JavaScript", "React", "MongoDB"], exp: 1 },
+  { role: "Front End Developer", city: "Bangalore", minLpa: 4, maxLpa: 7, skills: ["HTML", "CSS", "JavaScript", "React"], exp: 0 },
+  { role: "Front End Developer", city: "Chennai", minLpa: 3.5, maxLpa: 6.5, skills: ["HTML", "CSS", "JavaScript"], exp: 1 },
+  { role: "Back End Developer", city: "Bangalore", minLpa: 5, maxLpa: 9, skills: ["Java", "Spring", "SQL"], exp: 1 },
+  { role: "Back End Developer", city: "Hyderabad", minLpa: 4.5, maxLpa: 8.5, skills: ["Python", "Django", "SQL"], exp: 2 },
+  { role: "Back End Developer", city: "Pune", minLpa: 4.2, maxLpa: 8, skills: ["Node.js", "Express", "MongoDB"], exp: 1 },
+  { role: "Junior Data Engineer", city: "Bangalore", minLpa: 6, maxLpa: 11, skills: ["Python", "SQL", "Spark", "Azure"], exp: 1 },
+  { role: "Junior Data Engineer", city: "Hyderabad", minLpa: 5.5, maxLpa: 10, skills: ["Python", "SQL", "AWS"], exp: 1 },
+  { role: "Junior Data Engineer", city: "Gurgaon", minLpa: 5, maxLpa: 9, skills: ["Python", "SQL", "Airflow"], exp: 2 },
+  { role: "Support Engineer", city: "Bangalore", minLpa: 3, maxLpa: 5, skills: ["Linux", "Networking", "Customer Support"], exp: 0 },
+  { role: "Support Engineer", city: "Hyderabad", minLpa: 2.8, maxLpa: 4.8, skills: ["Linux", "Ticketing Tools"], exp: 1 },
+  { role: "Support Engineer", city: "Chennai", minLpa: 2.6, maxLpa: 4.5, skills: ["Windows", "Customer Support"], exp: 0 },
+  { role: "QA Engineer", city: "Bangalore", minLpa: 3.8, maxLpa: 6.5, skills: ["Manual Testing", "Selenium", "SQL"], exp: 0 },
+  { role: "QA Engineer", city: "Pune", minLpa: 3.5, maxLpa: 6, skills: ["Manual Testing", "JIRA"], exp: 1 },
+  { role: "QA Engineer", city: "Hyderabad", minLpa: 3.7, maxLpa: 6.2, skills: ["Automation", "Selenium"], exp: 1 },
+  { role: "Data Analyst", city: "Chennai", minLpa: 3.8, maxLpa: 6.8, skills: ["SQL", "Excel", "Power BI"], exp: 0 },
+  { role: "Data Analyst", city: "Noida", minLpa: 4, maxLpa: 7, skills: ["Python", "SQL", "Tableau"], exp: 1 },
+  { role: "Business Analyst", city: "Gurgaon", minLpa: 4.2, maxLpa: 7.5, skills: ["Excel", "PowerPoint", "SQL"], exp: 2 },
+  { role: "Full Stack Developer", city: "Noida", minLpa: 4.7, maxLpa: 8.5, skills: ["JavaScript", "Angular", "Node.js"], exp: 1 },
+  { role: "Front End Developer", city: "Hyderabad", minLpa: 3.8, maxLpa: 6.8, skills: ["HTML", "CSS", "Vue.js"], exp: 0 },
+  { role: "Back End Developer", city: "Chennai", minLpa: 4, maxLpa: 7.5, skills: ["Java", "Spring Boot"], exp: 1 },
+  { role: "Junior Data Engineer", city: "Pune", minLpa: 5, maxLpa: 9, skills: ["Python", "SQL", "GCP"], exp: 0 },
+  { role: "Support Engineer", city: "Gurgaon", minLpa: 3, maxLpa: 5.2, skills: ["Linux", "Shell Scripting"], exp: 2 },
+  { role: "QA Engineer", city: "Mumbai", minLpa: 3.2, maxLpa: 5.8, skills: ["Manual Testing"], exp: 0 },
+  { role: "Data Analyst", city: "Mumbai", minLpa: 4.2, maxLpa: 7.5, skills: ["SQL", "Excel"], exp: 1 },
+  { role: "Business Analyst", city: "Chennai", minLpa: 3.8, maxLpa: 6.8, skills: ["Excel", "SQL"], exp: 1 },
+  { role: "Full Stack Developer", city: "Mumbai", minLpa: 4.8, maxLpa: 9, skills: ["JavaScript", "React", "Node.js"], exp: 2 },
+  { role: "Front End Developer", city: "Gurgaon", minLpa: 3.7, maxLpa: 6.5, skills: ["HTML", "CSS", "JavaScript"], exp: 0 },
+  { role: "Back End Developer", city: "Mumbai", minLpa: 4.5, maxLpa: 8.5, skills: ["Python", "Django", "SQL"], exp: 2 },
+  { role: "Junior Data Engineer", city: "Chennai", minLpa: 4.8, maxLpa: 8.8, skills: ["Python", "SQL", "AWS"], exp: 1 },
+  { role: "Support Engineer", city: "Pune", minLpa: 2.7, maxLpa: 4.7, skills: ["Linux", "Ticketing Tools"], exp: 0 },
+  { role: "QA Engineer", city: "Gurgaon", minLpa: 3.6, maxLpa: 6.2, skills: ["Automation", "Selenium", "API Testing"], exp: 2 },
+];
+
+// Utility: derived median salary and Python+SQL insight can be calculated in app.js
+
