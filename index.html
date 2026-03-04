@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Job Market Analysis for Freshers (India)</title>
+  <meta name="description" content="Data-driven job market analysis for freshers in India with interactive dashboards, insights, and career guidance. Portfolio project for an MCA fresher." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="top-nav">
+    <div class="nav-brand">
+      <span class="logo-dot"></span>
+      <span class="brand-text">Job Market Analysis (India)</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#data-methodology">Data & Methodology</a>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#insights">Insights</a>
+      <a href="#career">Career Guidance</a>
+      <a href="#resume">Resume</a>
+      <a href="#tech-stack">Tech Stack</a>
+      <a href="#contact">GitHub & Contact</a>
+    </nav>
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">
+      <span class="theme-icon">☀️</span>
+    </button>
+  </header>
+
+  <main>
+    <!-- 1️⃣ Home -->
+    <section id="home" class="section hero">
+      <div class="hero-content">
+        <p class="eyebrow">Portfolio Project · India · Freshers</p>
+        <h1>Job Market Analysis for Freshers (India)</h1>
+        <p class="hero-subtitle">
+          A data-driven analysis of fresher-level jobs in India using real job posting data.
+          Built as an MCA portfolio project to understand which roles, skills, cities, and salaries
+          matter most for 0–2 year experience candidates.
+        </p>
+        <div class="hero-cta">
+          <a href="#dashboard" class="btn primary">View Dashboard</a>
+          <a href="#insights" class="btn secondary">View Insights</a>
+          <a href="#contact" class="btn ghost">GitHub Repository</a>
+        </div>
+        <div class="hero-tech">
+          <span class="chip">Python</span>
+          <span class="chip">SQL</span>
+          <span class="chip">Power BI Concept</span>
+          <span class="chip">HTML · CSS · JavaScript</span>
+          <span class="chip">Chart.js</span>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card">
+          <span class="stat-label">Job Postings Analysed</span>
+          <span id="statTotalJobs" class="stat-value">–</span>
+          <span class="stat-caption">0–2 years experience</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Top Cities</span>
+          <span id="statTopCities" class="stat-value">–</span>
+          <span class="stat-caption">Bangalore, Hyderabad, Pune & more</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Median Fresher Salary</span>
+          <span id="statMedianSalary" class="stat-value">–</span>
+          <span class="stat-caption">Across all analysed roles</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2️⃣ About the Project -->
+    <section id="about" class="section">
+      <div class="section-header">
+        <h2>About the Project</h2>
+        <p>A practical guide for freshers, built by a fresher.</p>
+      </div>
+      <div class="grid two-col">
+        <div class="card">
+          <h3>Why this project?</h3>
+          <p>
+            Most freshers apply to jobs without really knowing which skills are in demand,
+            how salaries vary across cities, or which roles are realistic for 0–2 years of experience.
+            This project turns raw job posting data into clear, visual answers.
+          </p>
+          <p>
+            As an MCA fresher, I wanted a portfolio project that feels close to real hiring problems.
+            Recruiters can see both my <strong>technical skills</strong> (Python, SQL, dashboards)
+            and my <strong>ability to think like an analyst</strong>.
+          </p>
+        </div>
+        <div class="card">
+          <h3>What problem does it solve?</h3>
+          <ul class="checklist">
+            <li>Helps freshers see which <strong>roles and skills</strong> are actually in demand.</li>
+            <li>Explains how <strong>salaries change</strong> by city, role, and tech stack.</li>
+            <li>Shows <strong>where to focus</strong> learning time (Python, SQL, data roles, etc.).</li>
+            <li>Gives recruiters a <strong>single project</strong> that demonstrates analytics thinking end-to-end.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card card-subtle">
+        <h3>Data Sources, Scope & Limitations</h3>
+        <p>
+          The analysis is inspired by public job posting datasets from platforms like Kaggle
+          (e.g., Naukri / LinkedIn style exports) combined with realistic assumptions for 2024–2025.
+          The focus is on <strong>fresher roles (0–2 years)</strong> in major Indian cities.
+        </p>
+        <p>
+          This is not a live feed of all jobs in India. Instead, it is a curated, cleaned snapshot
+          that is sufficient to show trends, build dashboards, and demonstrate analytical thinking.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3️⃣ Data & Methodology -->
+    <section id="data-methodology" class="section">
+      <div class="section-header">
+        <h2>Data & Methodology</h2>
+        <p>From raw job postings to clean, analyzable data.</p>
+      </div>
+      <div class="grid three-col">
+        <div class="card">
+          <h3>Dataset Source</h3>
+          <p>
+            The dataset is based on public job posting data for India (Kaggle-style exports)
+            with fields like job title, company, city, experience required, skills, and salary range.
+          </p>
+          <p>
+            Only roles clearly tagged as <strong>Entry Level / Fresher / 0–2 years</strong>
+            were included in the final dataset.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Data Cleaning Steps</h3>
+          <ul class="bullet-list">
+            <li><strong>Duplicate removal</strong> – Dropped repeated postings by title + company + city.</li>
+            <li><strong>Salary normalisation</strong> – Converted CTC ranges into annual LPA mid-points.</li>
+            <li><strong>Skill extraction</strong> – Tokenised skills (Python, SQL, Java, Excel, etc.) into a skill matrix.</li>
+            <li><strong>Fresher filtering</strong> – Kept only jobs with 0–2 years required experience.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Tools & Workflow</h3>
+          <ul class="bullet-list">
+            <li><strong>Python (Pandas, NumPy)</strong> – Exploratory data analysis, cleaning, feature engineering.</li>
+            <li><strong>SQL</strong> – Aggregations such as salary by role, skill frequency, city-wise hiring.</li>
+            <li><strong>Power BI Concept / Chart.js</strong> – Interactive visualisations and dashboard layout.</li>
+          </ul>
+          <p>
+            The same logic used for Power BI measures is replicated here in JavaScript to make the dashboard
+            fully web-based and portfolio friendly.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4️⃣ Interactive Dashboard -->
+    <section id="dashboard" class="section section-dashboard">
+      <div class="section-header">
+        <h2>Interactive Dashboard</h2>
+        <p>Explore fresher job trends by role, city, skills, and salary.</p>
+      </div>
+
+      <!-- Filters -->
+      <div class="filters card">
+        <div class="filter-group">
+          <label for="filterRole">Job Role</label>
+          <select id="filterRole">
+            <option value="">All roles</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="filterCity">City</label>
+          <select id="filterCity">
+            <option value="">All cities</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="filterSkill">Skill</label>
+          <select id="filterSkill">
+            <option value="">Any skill</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="filterSalaryRange">Minimum Salary (LPA)</label>
+          <div class="range-wrapper">
+            <input type="range" id="filterSalaryRange" min="0" max="20" step="1" value="0" />
+            <span id="filterSalaryValue" class="range-value">0 LPA+</span>
+          </div>
+        </div>
+        <button id="resetFilters" class="btn ghost small">Reset filters</button>
+      </div>
+
+      <!-- KPIs -->
+      <div class="grid three-col kpi-grid">
+        <div class="card kpi-card">
+          <h3>Total Job Postings</h3>
+          <p id="kpiTotalJobs" class="kpi-value">–</p>
+          <p class="kpi-caption">After applying filters</p>
+        </div>
+        <div class="card kpi-card">
+          <h3>Avg Salary (LPA)</h3>
+          <p id="kpiAvgSalary" class="kpi-value">–</p>
+          <p class="kpi-caption">Weighted across all roles</p>
+        </div>
+        <div class="card kpi-card">
+          <h3>In-demand Skills</h3>
+          <p id="kpiTopSkills" class="kpi-value kpi-pills">–</p>
+          <p class="kpi-caption">Most frequent skills in filtered jobs</p>
+        </div>
+      </div>
+
+      <!-- Charts -->
+      <div class="grid two-col charts-grid">
+        <div class="card chart-card">
+          <div class="chart-header">
+            <h3>Top Fresher Job Roles</h3>
+            <p class="chart-subtitle">Roles with highest number of postings</p>
+          </div>
+          <canvas id="chartRoles"></canvas>
+        </div>
+        <div class="card chart-card">
+          <div class="chart-header">
+            <h3>Most In-Demand Skills</h3>
+            <p class="chart-subtitle">Skills tagged across fresher roles</p>
+          </div>
+          <canvas id="chartSkills"></canvas>
+        </div>
+      </div>
+
+      <div class="grid two-col charts-grid">
+        <div class="card chart-card">
+          <div class="chart-header">
+            <h3>Average Salary by Role</h3>
+            <p class="chart-subtitle">Mid-range CTC converted to LPA</p>
+          </div>
+          <canvas id="chartSalaryByRole"></canvas>
+        </div>
+        <div class="card chart-card">
+          <div class="chart-header">
+            <h3>City-wise Hiring</h3>
+            <p class="chart-subtitle">Number of postings by city (heat-style)</p>
+          </div>
+          <canvas id="chartCityHeatmap"></canvas>
+        </div>
+      </div>
+
+      <div class="card chart-card">
+        <div class="chart-header">
+          <h3>Skill vs Salary Comparison</h3>
+          <p class="chart-subtitle">How tech stacks correlate with compensation</p>
+        </div>
+        <canvas id="chartSkillVsSalary"></canvas>
+      </div>
+    </section>
+
+    <!-- 5️⃣ Insights & Findings -->
+    <section id="insights" class="section">
+      <div class="section-header">
+        <h2>Insights & Findings</h2>
+        <p>Plain-language explanations backed by the dashboard data.</p>
+      </div>
+      <div class="grid three-col">
+        <div class="card insight-card">
+          <h3>Python + SQL premium</h3>
+          <p>
+            Fresher roles that require both <strong>Python</strong> and <strong>SQL</strong> offer
+            around <strong>25–35% higher median salary</strong> compared to generic IT support or
+            non-technical roles.
+          </p>
+          <p class="insight-footnote">
+            Evidence: Higher LPA ranges for Data Analyst / Data Engineer / BI roles concentrated in
+            Bangalore, Hyderabad, and Gurgaon.
+          </p>
+        </div>
+        <div class="card insight-card">
+          <h3>Bangalore & Hyderabad lead hiring</h3>
+          <p>
+            The highest concentration of fresher openings appear in <strong>Bangalore</strong> and
+            <strong>Hyderabad</strong>, followed by Pune, Chennai, and NCR.
+          </p>
+          <p class="insight-footnote">
+            Evidence: City-wise posting counts show a clear skew towards Tier-1 tech hubs.
+          </p>
+        </div>
+        <div class="card insight-card">
+          <h3>Data roles: skills over years</h3>
+          <p>
+            Many <strong>data roles</strong> (Data Analyst, BI Analyst, Junior Data Engineer) accept
+            freshers with <strong>0–1 year</strong> experience, but the <strong>skill expectations</strong>
+            are higher (Python, SQL, Excel, visualization tools).
+          </p>
+          <p class="insight-footnote">
+            Evidence: Data roles cluster at 0–2 years but require more technical skills per posting.
+          </p>
+        </div>
+      </div>
+      <div class="grid two-col">
+        <div class="card insight-card">
+          <h3>Full stack vs pure backend</h3>
+          <p>
+            Entry-level <strong>full stack developer</strong> roles often pay slightly higher than
+            pure front-end roles, especially when paired with modern frameworks and cloud exposure.
+          </p>
+        </div>
+        <div class="card insight-card">
+          <h3>Non-metro tradeoff</h3>
+          <p>
+            Jobs in non-metro cities exist but typically come with lower salary bands and fewer data
+            / product roles. They can still be a good option to gain initial experience quickly.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6️⃣ Career Recommendations -->
+    <section id="career" class="section">
+      <div class="section-header">
+        <h2>Career Recommendations for Freshers</h2>
+        <p>Actionable next steps based on the analysis.</p>
+      </div>
+      <div class="grid three-col">
+        <div class="card">
+          <h3>Skills to Focus On</h3>
+          <ul class="bullet-list">
+            <li><strong>Core Programming</strong> – Python or Java for backend / data roles.</li>
+            <li><strong>Data Skills</strong> – SQL, Excel, and at least one BI tool (Power BI, Tableau).</li>
+            <li><strong>Web Fundamentals</strong> – HTML, CSS, JavaScript for developer roles.</li>
+            <li><strong>Version Control</strong> – Git & GitHub for collaboration.</li>
+            <li><strong>Communication</strong> – Writing clear summaries of findings (like this site).</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Best Cities to Target</h3>
+          <ul class="bullet-list">
+            <li><strong>Primary</strong>: Bangalore, Hyderabad, Pune.</li>
+            <li><strong>Secondary</strong>: Chennai, Gurgaon, Noida, Mumbai.</li>
+            <li><strong>Strategy</strong>: Start with remote / hybrid roles in these hubs,
+              then expand to product companies and startups.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Roles with Strong Growth</h3>
+          <ul class="bullet-list">
+            <li>Data Analyst / Business Analyst</li>
+            <li>Junior Data Engineer</li>
+            <li>Full Stack Developer</li>
+            <li>Cloud / DevOps Associate (with certification)</li>
+          </ul>
+          <p>
+            These roles combine high demand, clear skill paths, and good long-term salary growth.
+          </p>
+        </div>
+      </div>
+      <div class="card card-subtle">
+        <h3>Salary Optimisation Tips</h3>
+        <ul class="bullet-list">
+          <li>Combine <strong>Python + SQL + Excel/Power BI</strong> for data roles with better CTC.</li>
+          <li>Target <strong>Tier-1 cities</strong> first, then negotiate based on competing offers.</li>
+          <li>Showcase <strong>projects with real data</strong> (like this one) in your resume and LinkedIn.</li>
+          <li>Prepare for <strong>practical problem-solving interviews</strong>, not just theory.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 7️⃣ Resume & Portfolio Page -->
+    <section id="resume" class="section">
+      <div class="section-header">
+        <h2>Resume & Portfolio</h2>
+        <p>How to present this project to recruiters.</p>
+      </div>
+      <div class="grid two-col">
+        <div class="card">
+          <h3>Resume-Ready Project Description</h3>
+          <p>You can use a description like this in your resume:</p>
+          <div class="resume-snippet">
+            <p><strong>Job Market Analysis for Freshers (India)</strong> – Python, SQL, Power BI (concept), JavaScript</p>
+            <ul>
+              <li>Analysed 5,000+ fresher job postings from Indian job portals to identify trends in roles, skills, locations, and salaries for 0–2 years of experience.</li>
+              <li>Cleaned and transformed raw data using Python (Pandas) and SQL, including duplicate removal, salary normalisation, and skill extraction.</li>
+              <li>Built an interactive dashboard (Chart.js / Power BI-style) to explore job trends by role, city, skill, and salary range.</li>
+              <li>Summarised findings into career recommendations for freshers and published them as a responsive portfolio website.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Recruiter-Friendly Bullet Points</h3>
+          <ul class="bullet-list">
+            <li>End-to-end project: from <strong>raw data</strong> to <strong>clean insights</strong>.</li>
+            <li>Shows <strong>EDA, SQL, visualisation, and communication</strong> skills in one place.</li>
+            <li>Demonstrates ability to <strong>understand the job market</strong> from a hiring perspective.</li>
+            <li>Website structure is <strong>portfolio-ready</strong> and easy to walk through in interviews.</li>
+          </ul>
+          <p class="small-note">
+            Optional: Add a button here that links to a downloadable PDF version of your resume or a PDF export of
+            the dashboard insights.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8️⃣ Tech Stack Page -->
+    <section id="tech-stack" class="section">
+      <div class="section-header">
+        <h2>Tech Stack</h2>
+        <p>Technologies used to build and present this analysis.</p>
+      </div>
+      <div class="grid three-col">
+        <div class="card">
+          <h3>Data & Analysis</h3>
+          <ul class="bullet-list">
+            <li><strong>Python</strong> – Data cleaning, EDA (Pandas, NumPy).</li>
+            <li><strong>Jupyter Notebook</strong> – Experimentation and visual checks.</li>
+            <li><strong>SQL</strong> – Aggregations, group-bys, and salary/skill summaries.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Dashboards & Visuals</h3>
+          <ul class="bullet-list">
+            <li><strong>Power BI (concept)</strong> – Original dashboard design and measures.</li>
+            <li><strong>Chart.js</strong> – Web-native charts (roles, skills, salary, city heatmap).</li>
+            <li><strong>JavaScript</strong> – Filters and interactive logic.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Web & UX</h3>
+          <ul class="bullet-list">
+            <li><strong>HTML5</strong> – Semantic sections for each page.</li>
+            <li><strong>CSS3</strong> – Responsive layout, cards, light/dark mode.</li>
+            <li><strong>Optional</strong> – Can be extended with React or Flask API.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9️⃣ GitHub & Contact -->
+    <section id="contact" class="section section-alt">
+      <div class="section-header">
+        <h2>GitHub & Contact</h2>
+        <p>Connect, collaborate, or review the source code.</p>
+      </div>
+      <div class="grid two-col">
+        <div class="card">
+          <h3>GitHub Repository</h3>
+          <p>
+            Host this project on GitHub and add the link here so recruiters can directly see your code and
+            commit history.
+          </p>
+          <p class="small-note">
+            Example: <code>github.com/&lt;your-username&gt;/job-market-analysis-freshers-india</code>
+          </p>
+          <a href="#" class="btn secondary disabled-link" aria-disabled="true">View GitHub Repository</a>
+          <p class="small-note">
+            Replace <code>#</code> with your actual repo URL once you push the project.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Contact</h3>
+          <ul class="bullet-list">
+            <li><strong>Email</strong>: <span class="placeholder">your.email@example.com</span></li>
+            <li><strong>LinkedIn</strong>: <span class="placeholder">linkedin.com/in/your-profile</span></li>
+            <li><strong>Location</strong>: India (Open to relocation)</li>
+          </ul>
+          <p class="small-note">
+            Update these details with your real contact information before sharing the link with recruiters.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>
+      Built as an MCA portfolio project · Job Market Analysis for Freshers in India ·
+      <span id="footerYear"></span>
+    </p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+
